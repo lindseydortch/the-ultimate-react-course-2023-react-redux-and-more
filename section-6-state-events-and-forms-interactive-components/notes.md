@@ -167,5 +167,7 @@
     - Used by parent to configure child component ("settings")
 
 ## EXERCISE #1: Flashcards
+- Walked through flashcards exercise
 
 ## CHALLENGE #2: Date Counter (v2)
+- Walked through coding challenge #2
