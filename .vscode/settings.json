@@ -3,5 +3,11 @@
     "javascript": "javascriptreact",
     "html": "html",
     "typescript": "typescript"
+  },
+  "workbench.colorCustomizations": {
+    "titleBar.activeForeground": "#000",
+    "titleBar.inactiveForeground": "#000000CC",
+    "titleBar.activeBackground": "#E9D6EC",
+    "titleBar.inactiveBackground": "#E9D6ECCC"
   }
 }
