@@ -42,4 +42,4 @@
 - As of now when we select a new friend the value in the inputs stays there right now, we will fix this later once we have more knowledge of bigger concepts in React 
 
 ## Splitting a Bill
-- 
+- Walked through the split bill logic
