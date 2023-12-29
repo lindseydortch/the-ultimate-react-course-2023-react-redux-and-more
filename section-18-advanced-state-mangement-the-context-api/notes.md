@@ -171,7 +171,15 @@
 - Remember when deleting we filter out the array 
 
 ## Advanced State Management System: Context + useReducer
-- 
+- We will refactor our code in the city context to use useReducer 
+- Reducers need to be pure functions, so fetch requests cannot be done, they need to be done outside in separate functions and then we can dispatch actions when the data has been received 
+- When naming cases it is important to model your actions as events and not setters, it makes it easier to see all the related state transitions 
+  - Examples: cities/loaded 
+  - Example above is used primarily in Redux 
+- When we are working with asynchrnous data and code we have two options when it comes to the disptach function: 
+  - First option is we pass in all the state plus the dispatch function into the value and then we can use the disptach function inside of the components, so we cannot have our logic in the reducer 
+  - Second option we pass the dispatch function into event handler functions and then we pass those functions into the context 
+- When reading from the URL our data always comes back to us as a string 
 
 ## Adding Fake Authentication: Setting Up Context
 
