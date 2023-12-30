@@ -182,9 +182,48 @@
 - When reading from the URL our data always comes back to us as a string 
 
 ## Adding Fake Authentication: Setting Up Context
+- In a typical frontend app, user auth usually works in 3 steps 
+  - First we get a username and password from a login form and then check if the username and password are correct from an API endpoint 
+  - If correct we direct the user to the main app and then save the user object in our state 
+  - Then we need to protect our application from users who are not logged in 
+- For fake auth, we are just checking if the user and password are correct 
+  - In a later app, we will work on real authentication 
+- When creating a new context you always 
+  - import createContext and useContext, create function for the Provider that takes in the children prop and your custom hook that first checks if the value is undefined 
+  <code>
+    import { createContext, useContext } from 'react';
+
+    const AuthContext = createContext();
+
+    function AuthProvider({ children }) {
+      // Handler functions here, example: login, logout 
+
+      return <AuthContext.Provider>{children}</AuthContext.Provider>;
+    }
+
+    function useAuth() {
+      const context = useContext(AuthContext);
+
+      if (context === undefined)
+        throw new Error('AuthContext was used outside of AuthProvider');
+      
+      return context;
+    }
+
+    export { AuthProvider, useAuth };
+  </code>
+- A context doesn't have to do anything with data fetching, we can broadcast data to the entire tree 
 
 ## Adding Fake Authentication: Implmenting "Login"
+- When you build your own applications you should never, use a fake user with a password of password 
+  - They'll be able to see it, we're only doing this for the mechanics of authentication implementation 
+- Order of your providers doesn't matter, just depends when you're calling state from one place to another 
+- replace{} in the useNavigate portion, tells the browser to replace that page/component in the history stack 
 
 ## Adding Fake Authentication: Protecting a Route
+- We should not call navigate from top level code because that is in an effect and effects belong in useEffect()
+  - Our ProtectedRoute component will initially render the children and then everything the user is trying to read, so it still tries to attempt to execute the render 
+- We will come back to this application in the next section
 
 ## CHALLENGE #2: Refactoring "React Quiz" to Context API
+- Walked through Challenge #2
