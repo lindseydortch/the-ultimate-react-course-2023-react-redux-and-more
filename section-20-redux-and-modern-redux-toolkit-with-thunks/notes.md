@@ -70,18 +70,70 @@
   - We also use the combineReducers method to achieve this  
 
 ## Professional Redux File Structure: State Slices
+- Back in the day there was a reducers folder with reducers and actions for each state 
+  - So this is no longer the recommended way to do things 
+- We will organize by features, example the customer and account 
+- Slice - a piece of the total state 
+- The entire state lives in the store so we take one slice of that state
+- Default export of the reducer and then the actions as named exports
+  - We no longer import the action functions to the redcuer because that is not where we need them 
 
 ## Back to React! Connecting Our Redux App With React
+- `react-redux` is the package that makes react and reux actually talk to each other 
+- Works similarly to the context API, so we use the provider 
+  - Our provider element takes in the store={}
+- In order to read data from the store we have to use useSelector from `react-redux`
+  - useSelector takees in the entire Redux store and then we can get the data we want
+  - useSelector creates a subscription to the store like the contextAPI 
+- Redux implements some performance implementations similar to the context API 
 
 ## Dispatching Actions from Our React App
+- To dispatch an action, we get access to the useDispatch hook from `react-redux`
 
 ## The Legacy Way of Connecting Components to Redux
+- Before hooks existed we had to use the connectAPI,really not used anymore, but went through an example just to see 
 
 ## Redux Middleware and Thunks
+- What is Redux middleware?
+  - Where to make an asynchronous API call (or any other asyn operation) in Redux? 
+  - Component
+    - Can make asynchronous operations and then disptach 
+    - Fetching data in components is not ideal 
+  - dispatch 
+  - Middleware 
+    - A function that sites between disptaching the action and the store. Allows us to run code after disptaching, but before reaching the reducer in the store 
+    - Perfect for asynchronous code 
+    - API calls, timers, logging, etc. 
+    - The place for side effects 
+    - The most popular in Redux is the Thunk package 
+  - Store 
+    - No asynchronous operations 
+    - Reducers need to be pure functions 
 
 ## Making an API Call With Redux Thunks
+- We will be making a call to a third party API that converts currency 
+- To include the middleware we: 
+  - First install the middleware package 
+    - `redux-thunk`
+  - Then include it in the store
+    - We applyMiddleware(thunk)
+  - Then we use the middleware in our action creator functions 
+    - When we return or disptach a function before dispatching, redux will no that is the thunk 
+- Think of middleware as sitting between the dispatching and the store 
+  - We stop our code from hitting the store until we get the asynchronous data that we need 
+- The conversion is completely hidden from our component and is completely hidden in our account slice 
 
 ## The Redux DevTools
+- This is a three stop process: 
+  - Install the Redux devTools with Google Chrome 
+  - Then we install the npm package 
+    - `redux-devtools-extension`
+  - The function we use is `composeWithDevTools` in our store on our apply middleware
+- We get access to the type of action and the payload 
+- Jump allows us to go back and see what is happening in the state in the UI 
+- We can also use the slider to move through the state transitions 
+- We can also manually dispatch some actions 
+  - Helpful for when you want to fire up some actions instead of putting buttons on the UI 
 
 ## What is Redux Toolkit (RTK)?
 
