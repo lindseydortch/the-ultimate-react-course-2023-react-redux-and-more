@@ -136,13 +136,78 @@
   - Helpful for when you want to fire up some actions instead of putting buttons on the UI 
 
 ## What is Redux Toolkit (RTK)?
+- What is Redux Toolkit? 
+  - Redux toolkit
+    - The modern and preferred way of writing Redux code
+    - An opinionated approach, forcing us to use Redu best practices 
+    - 100% compatible with "classic" Redux, allowung us to use them together 
+    - Allows us to write a lot less code to achieve the same result (less "boilerplate")
+      - Hides setting up middleware and other things 
+    - Gives us 3 big things (but there are many more...)
+      - We can write code that "mutates" state inside reducers (will be converted to immutable logic behind the scenes by "Immer" library)
+      - Action creators are automatically created 
+      - Automatic setup of thunk middleware and DevTools 
 
 ## Creating the Store With RTK
+- We can start by only converting the store and leaving our slices the way they are 
+- We need to install `@reduxjs/toolkit`
+- Instead of createStore we use configureStore
+  - Automatically combines our reducers and creates our think middleware
+- Nothing changes with the react-redux configurations, but our slies will be a lot easier to write 
 
 ## Creating the Account Slice
+- We can import createSlice from redux toolkit 
+- createSlice gives us three big benefits 
+  - Automatically create action creators from our reducers
+  - Makes writing reducers a lot easier by getting rid of switch statements and handles our 
+  - We can mutate our state inside of reducers
+- React toolkit forces into a pattern that's a little too opinionated 
+- createSlice takes in: 
+  - name
+  - state (initialState)
+  - reducers 
+- We now mutate the property without having to call in the whole state because redux toolkit handles that for us 
+- By default the automatically created action creators only take in one parameter
+  - This is the limitation of these automatic created action creators, but there is a solution 
+  - So now we have to prepare the data before it passes it to the reducer, we use `prepare()`
+- We have to pay attention to the order of our code
+- In a simple sitauation the classic redux can be a good approach 
+- You cn use a mix of classic in your slices  
 
 ## Back to Thunks
+- Using createAsyncThunk is a lot of work, we can write it the way we did before
+  - We will learn how to write out createAsyncThunk in a later project 
 
 ## Creating the Customer Slice
+- The date creation needs to be in the prepared portion and not in the reducer 
 
 ## Redux vs. Context API
+- Context API vs Redux 
+  - Context API + useReducer 
+    - Built into React 
+    - Easy to set up a single context 
+    - Additional state "slice" requires new context set up from scratch ("provider hell" in App.js)
+    - No mechanism for async operations 
+    - Performance optimization is a pain 
+    - Only React DevTools
+  - Redux 
+    - Requires additional package (larger bundle slice)
+    - More work to set up initially 
+    - Once set up, it's easy to create additional state "slices" 
+    - Supports middleware for async operations 
+    - Performance is optimized out of the box 
+    - Excellent DevTools
+  - Keep in mind that we should not use these solutions for remote state 
+- When to use Context API or Redux 
+  - Context API + useReducer 
+    - "Use the Context API for global state management in small apps"
+    - When you just need to share value that doesn'tchange often [Color theme, preferred language, authenticated user, ...]
+    - When you need to solve a simple prop drilling problem 
+    - When you need to manage state in local sub-tree of the app 
+      - For example in the compound component pattern 
+  - Redux 
+    - "Use Redux for global state management in large apps"
+    - When you have lots of global UI state that needs to be updated frequently (because Redux is optimized for this) [Shopping cart, current tabs, complex filters or search, ...]
+    - When you have complex state nextes objects and arrays (because you can mutate state with Redux Toolkit)
+    - These are not super common in UI state 
+  - There is no right anwer that fits every project. It all depends on the project needs 
