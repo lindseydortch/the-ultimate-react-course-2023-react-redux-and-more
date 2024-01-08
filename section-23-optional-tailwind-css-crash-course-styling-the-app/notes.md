@@ -107,10 +107,14 @@
   - Sometimes the viewport height isn't actually 100% 
 
 ## Styling the Menu
-- 
+- The divide class in tailwind, places some lines between all of the child elements, similar to the space element 
+- Specifying a margin-top of auto pushes an element to the bottom in a flex container 
 
 ## Styling the Cart
+- Went through styling of the cart page and components
 
 ## Styling the Order Form
+- You can use a CSS trick from CSS tricks to make your favicon an emoji 
 
 ## Styling the Order Overview 
+- The design principles section in Jonas' HTML and CSS course goes over the design principles mentioned throughout this section 
