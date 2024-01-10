@@ -116,8 +116,13 @@
 - We can set defaultProps for our CSS and specify the type if it's not passed in 
 
 ## Setting Up Pages and Routes
-- 
+- We will be using the declarative way of setting up our routes 
 
 ## Building the App Layout
+- Set up the AppLayout with a header and sidebar and styled them 
 
 ## Building the Sidebar and Main Navigation
+- We can use the styled() to style elements brought in from things like react-router-dom etc. 
+- Reminder that react-router puts an .active class on the active link 
+- React-icons 
+  - Download `react-icons` package 
