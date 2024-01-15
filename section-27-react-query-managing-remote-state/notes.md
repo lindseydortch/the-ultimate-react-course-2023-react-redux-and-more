@@ -75,11 +75,19 @@
   - We pass it in on our component level and then our api level handles the uploading to supabase 
 
 ## Editing a Cabin
+- We can pass in some values to our React hook form, such as defaultValues 
+  - When we're creating a cabin, we don't want to use this, it would just be empty 
+- We are putting all of our functionality in the createCabin function since there is a lot of duplicate code
 
 ## Abstracting React Query Into Custom Hooks
+- The hooks folder is for hooks that can be reused throughout multiple features and now just one component 
+- We can use the onSuccess function to pass in our reset since we are still technically mutating via React Query 
+- With the custom hook, we made it easy to 
 
 ## Duplicating Cabins
+- Added in functionality for duplicating a cabin 
 
 ## Fetching Applications Settings
+- 
 
 ## Updating Application Settings
