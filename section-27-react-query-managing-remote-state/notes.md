@@ -88,6 +88,6 @@
 - Added in functionality for duplicating a cabin 
 
 ## Fetching Applications Settings
-- 
+- .single() object instead of the entire array 
 
 ## Updating Application Settings
