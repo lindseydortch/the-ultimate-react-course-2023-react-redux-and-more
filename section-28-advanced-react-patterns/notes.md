@@ -55,9 +55,18 @@
   - Each of the components on their own don't make sense, but once they come together, then they work together for the overall bigger component 
 
 ## Building a Modal Window Using a React Portal
-- 
+- You can call a function with the optional chaining method 
+  - Example: `onCloseModal?.()`
+- A react portal allows us to render an element outside of the parent elements prop structure but keep it's place in the component tree 
+  - This is great for elements we want to stay on top of other elements 
+- createPortal is part of react-dom
+  - It takes in the JSX you want it to return and the parent we want to render that element 
+    - Example `document.body`
+  - A portal is necessary for when someone uses the overflow:hidden set on the parent 
+    - This is all about reusability 
 
 ## Converting the Modal to a Compound Component
+- 
 
 ## Detecting a Click Outside the Modal
 
