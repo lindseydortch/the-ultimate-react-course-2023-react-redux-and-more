@@ -66,14 +66,24 @@
     - This is all about reusability 
 
 ## Converting the Modal to a Compound Component
-- 
+- Our issue right now is the component who uses the modal is keeping track of whether or not the modal is open or not 
+  - The modal component itself should keep this state internally 
+- cloneElement
+  - Is pretty uncommon and can lead to fragile code 
+  - Lets you create a new React element using another element as a starting point 
 
 ## Detecting a Click Outside the Modal
+- We are using a useEffect to create our DOM event listeners and then we use, useRef to reference where we want this event to happen 
+- Reminder events bubble up and then the click is detected outside of the modal window and then it immediately detects a click outside of it, so we need to listen to the event as it goes down the DOM tree and not up 
 
 ## Confirming Cabin Deletions
+- Added Modal functionality for deleting cabins and editing cabins
 
 ## Building a Reusable Table
+- Made the Table a compound component 
 
 ## Applying the Render Props Pattern
+- USed the render props pattern along with our compond table component 
 
 ## Building a Reusable Context Menu
+- 
