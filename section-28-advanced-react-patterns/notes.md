@@ -83,7 +83,10 @@
 - Made the Table a compound component 
 
 ## Applying the Render Props Pattern
-- USed the render props pattern along with our compond table component 
+- Used the render props pattern along with our compond table component 
 
 ## Building a Reusable Context Menu
-- 
+- We want to give each of our buttons a button to click with the 3 buttons they can choose 
+  - Everything will go into a menu 
+- Many of the things we've learned in this section have been opinionated and less about React
+- One bug that was left is when you scroll the menu stays fixed 
