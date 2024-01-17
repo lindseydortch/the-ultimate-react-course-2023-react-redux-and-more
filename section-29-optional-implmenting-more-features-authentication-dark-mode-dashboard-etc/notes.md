@@ -14,7 +14,7 @@
   - We can then put our filter component anywhere we want since we're storing state in the URL 
 
 ## Client-Side Filtering: Sorting Cabins
-- 
+- Adding in functionality to sort the cabins 
 
 ## Building the Bookings Table
 - 
@@ -23,14 +23,19 @@
 - 
 
 ## API-Side Filtering: Filtering Bookings
+- 
 
 ## API-Side Sorting: Sorting Bookings
+- 
 
 ## Building a Reusable Pagination Component
+- 
 
 ## API-Side Pagination: Paginting Bookings
+- 
 
-## Prefetching With React Query
+## Prefetching With React Query 
+- 
 
 ## Building the Single Booking Page
 
