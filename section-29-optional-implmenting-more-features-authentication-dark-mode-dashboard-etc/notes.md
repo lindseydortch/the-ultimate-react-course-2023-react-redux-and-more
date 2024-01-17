@@ -1,14 +1,26 @@
 # Section 29: [Optional] Implementing More Features: Authentication, Dark Mode, Dashboard, etc
 
 ## Section Overview
+- Building real-world app features 
+- Filter, sort, pagination 
+- Dark mode 
+- Dashboardwith charts 
+- Authentication and authorization 
+- This section will not introduce anything new about React, but instead will show how to build real-world features that are commonly seen on web apps 
 
 ## Client-Side Filtering: Filtering Cabins
+- We will be adding in filtering for discounts and other criteria in the table 
+- We will be storing the value by which the table should be filterable in the URL so it can be easily save and bookmarked 
+  - We can then put our filter component anywhere we want since we're storing state in the URL 
 
 ## Client-Side Filtering: Sorting Cabins
+- 
 
 ## Building the Bookings Table
+- 
 
 ## Uploading Sample Data
+- 
 
 ## API-Side Filtering: Filtering Bookings
 
