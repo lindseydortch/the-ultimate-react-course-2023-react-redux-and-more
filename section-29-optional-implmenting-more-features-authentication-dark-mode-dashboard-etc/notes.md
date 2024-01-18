@@ -17,16 +17,25 @@
 - Adding in functionality to sort the cabins 
 
 ## Building the Bookings Table
-- 
+- We not only need to load the booking information from our API, but we also need to bring in the information of the cabin and guest with the booking 
+  - Supabase API makes it easy to do this, we do this in the .select() 
+  - We can limit the dowbloaded data to what we need
 
 ## Uploading Sample Data
-- 
+- We have data in our data folder with an uploader component, we can import all of our sample data and delete all existing 
+  - This will go in our sidebar
 
 ## API-Side Filtering: Filtering Bookings
-- 
+- We will filter our data in a fundamentally different way than we did with the cabins 
+- The operations happened on the cabin side, this time we will be on the server side
+  - We need to filter in our query in the API 
+- Example: 
+  - `.eq("status", "unconfirmed");`
+- We can't use the useSearchParams in our apiBookings file, so we will filter in the useBookings.js
+- You can add a variable to the queryKey so React Query will re-fetch or re-load your data when that variable changes 
 
 ## API-Side Sorting: Sorting Bookings
-- 
+- Added in functionality using server side rendering to sort our bookings
 
 ## Building a Reusable Pagination Component
 - 
