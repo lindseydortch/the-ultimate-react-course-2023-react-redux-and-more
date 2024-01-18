@@ -58,13 +58,13 @@
 - React Query tries to re-fetch data 3 times and then it fails, but you can set it to false 
 
 ## Checking In a Booking
-- 
+- We want to check in the user on the booking details and a link in the context menu on the booking table itself 
 
 ## Adding Optional Breakfast
-- 
+- Added functionality for users to add breakfast at check in 
 
 ## Checking Out a Booking (+ Fixing a Small Bug)
-- 
+- Added in functionality to check out of a booking and fixed the page loading bug 
 
 ## Deleting a Booking
 - 
