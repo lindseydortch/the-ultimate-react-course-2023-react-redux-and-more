@@ -47,18 +47,27 @@
   - This will also return a variable on the object called count 
 
 ## Prefetching With React Query 
-- 
+- PRefetching is all about fetching some data we know might become necessary before we actually need that data to render it on the user interface
+  - So in the case of pagination we load the data for the next page and the same thing for going back 
+- We prefetch using the same params as useQuery() 
+- React Query also has infinite scroll, we will not be implementing it, but we can look it up in the documentation 
 
 ## Building the Single Booking Page
-- 
+- We will be adding in a context menu so we can go to a single bookings page 
+- We can read the bookingId from the params, we can do is in our useBooking function so it doesn't depend on anything outside 
+- React Query tries to re-fetch data 3 times and then it fails, but you can set it to false 
 
 ## Checking In a Booking
+- 
 
 ## Adding Optional Breakfast
+- 
 
 ## Checking Out a Booking (+ Fixing a Small Bug)
+- 
 
 ## Deleting a Booking
+- 
 
 ## Authentication: User Login with Supabase
 
