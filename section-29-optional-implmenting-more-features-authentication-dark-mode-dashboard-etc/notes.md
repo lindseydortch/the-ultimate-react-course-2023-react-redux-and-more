@@ -38,15 +38,19 @@
 - Added in functionality using server side rendering to sort our bookings
 
 ## Building a Reusable Pagination Component
-- 
+- The pagination will be similar to the filter and sortBy functions 
+- It will be read from the URL and handled on the server-side 
 
-## API-Side Pagination: Paginting Bookings
-- 
+## API-Side Pagination: Paginating Bookings
+- Supabase allows us to pass in a second argument with the count property
+  - This can be helpful if you don't want to query the entire data 
+  - This will also return a variable on the object called count 
 
 ## Prefetching With React Query 
 - 
 
 ## Building the Single Booking Page
+- 
 
 ## Checking In a Booking
 
