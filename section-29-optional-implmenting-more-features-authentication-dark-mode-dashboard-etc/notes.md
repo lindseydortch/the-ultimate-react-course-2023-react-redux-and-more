@@ -105,12 +105,17 @@
 - Added functionality for updating user data like the name, avatar and password 
 
 ## Implementing Dark Mode With CSS Variables
+- We used CSS variables to set a class that has light-mode or dark-mode and we turn this class on and off 
+- We also need to store the information on if light or dark mode is on, so we will need global state for this 
 
 ## Building the Dashboard Layout
+- 
 
 ## Computing Recent Bookings and Stays
+- 
 
 ## Displaying Statistics
+- 
 
 ## Displaying a Line Chart With the Recharts Library
 
