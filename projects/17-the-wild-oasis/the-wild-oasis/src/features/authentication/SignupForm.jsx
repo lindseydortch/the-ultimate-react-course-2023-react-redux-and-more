@@ -54,7 +54,6 @@ function SignupForm() {
           type="password"
           id="password"
           disabled={isLoading}
-          disabled={isLoading}
           {...register("password", {
             required: "This field is required",
             minLength: {
@@ -80,7 +79,11 @@ function SignupForm() {
 
       <FormRow>
         {/* type is an HTML attribute! */}
-        <Button variation="secondary" type="reset" disabled={isLoading}>
+        <Button
+          variation="secondary"
+          type="reset"
+          disabled={isLoading}
+          onClick={reset}>
           Cancel
         </Button>
         <Button disabled={isLoading}>Create new user</Button>

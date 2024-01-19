@@ -99,10 +99,10 @@
 - We set the target role in supabase to authenticated 
 
 ## Building the App Header
-- 
+- Built out the header for the application with the user avatar and logout and account page functionality 
 
 ## Updating User Data and Password
-- 
+- Added functionality for updating user data like the name, avatar and password 
 
 ## Implementing Dark Mode With CSS Variables
 
