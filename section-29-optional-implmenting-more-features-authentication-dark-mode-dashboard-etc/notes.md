@@ -67,25 +67,42 @@
 - Added in functionality to check out of a booking and fixed the page loading bug 
 
 ## Deleting a Booking
-- 
+- Added in functionality for deleting a booking 
 
 ## Authentication: User Login with Supabase
+- We will use subapase to sign up a user and update a user and update an avatar
+- You can enable all sorts of providers like Apple, Github, etc
+  - For this app we will only be using the email 
+- Behind the scenes supabase uses JWT 
+- Supabase adds the user to localStorage
+- We do a mutation because it is easier to handle the success and error states 
 
 ## Authorization: Protecting Routes
+- We will wrap our entire application into a protected route 
+- We can also set some data in react queries cache using useQueryClient and then .setQueryData() 
 
 ## User Logout
+- Reminder that replace: true, when using useNavigate gets rid of the history of the navigation, so the user can't go back in the history and access the page 
 
 ## Fixing an Important Bug
+- We get a user in our cache if we try to access the route url, but this is in the route url 
 
 ## Building the Sign Up Form
+- Only employees of this hotel can sign up for this app 
+  - These users can only be created inside of the application 
 
 ## User Sign Up
+- Set up the sign up form using react-forms
 
 ## Authorization on Supabase: Protecting Database (RLS)
+- You can use a service called tempmail to test signups of fake users 
+- We set the target role in supabase to authenticated 
 
 ## Building the App Header
+- 
 
 ## Updating User Data and Password
+- 
 
 ## Implementing Dark Mode With CSS Variables
 
