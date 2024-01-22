@@ -109,20 +109,39 @@
 - We also need to store the information on if light or dark mode is on, so we will need global state for this 
 
 ## Building the Dashboard Layout
-- 
+- Started building the layout of the dashboard page 
 
 ## Computing Recent Bookings and Stays
-- 
+- In the dashboard it is important to distinguish our data between our bookings and our stays, we need this information for different parts in our dashboard 
+  - A booking is an actual sale 
+  - A stay is a guest actually staying in the hotel 
 
 ## Displaying Statistics
-- 
+- Added in functionality to display the stays, sales, check ins and occupancy rate on the dashboard
 
 ## Displaying a Line Chart With the Recharts Library
+- There are many chart libraries, the easiest one to use is recharts, but the documentation is not that great, so refer back to this video and the next 
 
 ## Displaying a Pie Chart
+- Added in a pie chart to display the duration summary 
 
 ## Displaying Stays for Current Day
+- Finished by Writing out the activities for the day for check ins and check outs on the dashboard
 
 ## Error Boundaries
+- It's normal bugs can end up in production, so to avoid the white screen we get if something doesn't exist we need to set up error boundaries 
+  - They are like try/catch 
+  - These are hard to use because they implemented using class components
+    - So everyone uses react-error-boundary
+- Most of the time React only catches these during rendering 
 
 ## Final Touches + Fixing Bugs
+- Fixed a DOM bug with toggling the context menu in the table 
+- We can get access to the system darkmode setting 
+  - `window.matchMedia('(prefers-color-scheme:dark)').matches` returns a Boolean
+- What we could have implemented: 
+  - Actually create new bookings from this application if a guest comes in 
+  - You can add the feature with check in and checkout times 
+  - Cabins don't have a fixed price, user can set a price for every single price 
+  - You can add a resturaunt and add a bill value for them to pay when they check out 
+  - Generate a page where it generates a PDF of their bill to email to the guest 
