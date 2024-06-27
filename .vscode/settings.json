@@ -9,5 +9,13 @@
     "titleBar.inactiveForeground": "#000000CC",
     "titleBar.activeBackground": "#E9D6EC",
     "titleBar.inactiveBackground": "#E9D6ECCC"
-  }
+  },
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+  "[html]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "prettier.configPath": "/usr/local/lib/node_modules/prettier"
 }

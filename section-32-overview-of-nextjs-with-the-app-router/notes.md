@@ -74,12 +74,55 @@
     - Common hydration error causes: incorrect HTML element nesting, different data used for rendering, using browser-only APIs, side effects, etc. 
 
 ## Implementing Hydration 
-- 
+- When we slow the app down to slow 3G it can be very slow to load, but you still see the first paint 
+- We won't have to write this type of code ever again, this is why we have frameworks 
 
 ## What Is Next.js? 
-- 
+- What is Next.js? 
+  - Next.js 
+    - "The React Frameowrk for the web" -Vercel
+    - Meta-framework built on top of React: we still use components, props, react hooks, etc. 
+    - Opinionated way of building React apps: set of conventions and best practices regarding routing, data fetching, etc. 
+    - Allows us to build complex full-stack web apps and sites 
+    - Allows us to use cutting-edge React features that need to be integrated into a frameowrk: Suspense, Server Components, Server Actions, steaming, etc. 
+      - React's full-stack architecture vision
+- The Next.js Key Ingredients 
+  - Server-Side Rendering (Dynamic and Static)
+    - Dynamic or static can be selected for each route 
+  - File-Based Routing Conventions 
+    - Folders are routes 
+    - Special files for pages, layouts, loaders, etc. 
+  - Data Fetching and Mutation on the Server 
+    - Fetching data directly in Server Components 
+    - Mutations in Server Actions 
+  - Optimizations 
+    - Images 
+    - Fonts 
+    - SEO 
+    - Preloading 
+- Two Flavours of Next.js: "App" and "Pages" Router 
+  - Modern Next.js: "App" Router 
+    - Introduced in Next.js 13.4 (2023)
+    - Recommended for new projects 
+    - Implements React's full-stack architecture: Server Components, Server Actions, Streaming, etc. 
+    - Easy fetching with fetch() right in components 
+    - Extremely easy to create layouts, loaders, etc. 
+    - More advanced routing (parallel routing, etc.)
+    - Better DX (Developer Experience) and UX
+    - Caching is very aggressive and confusing 
+    - Steep learning curve (but it's React)
+  - Legacy Next.js: "Pages" Router 
+    - The first Next.js Router since v1 (2016)
+    - Still supported and updated in the future 
+    - Overall more simple and easy to learn 
+    - Simple things like layouts are confusing to implement 
+    - Data fetching using Next.js-specific APIs such as `getStaticProps` and `getserverSideProps`
+  - We're gonna learn the "app" router from the start. At the end, there is a section on fundamentals of the "pages" router 
 
 ## Setting Up a Next.js Project 
+- `npx create-next-app@latest`
+  - Use v14, to stay on track with the course 
+- Tailwind is tightly integrated with tailwindCSS 
 - 
 
 ## Frequent Next.js Updates + Documentation 
