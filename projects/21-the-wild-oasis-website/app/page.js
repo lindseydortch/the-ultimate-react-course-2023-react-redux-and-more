@@ -1,5 +1,10 @@
-export default function Home() {
+import Link from "next/link";
+import Navigation from "./components/Navigation";
+
+export default function Page() {
   return (
-    <h1>Hello nexy!</h1>
+    <div>
+      <h1>The Wild Oasis. Welcome to Paradise!</h1>
+    </div>
   );
 }

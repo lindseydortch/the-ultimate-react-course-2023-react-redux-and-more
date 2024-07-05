@@ -123,26 +123,191 @@
 - `npx create-next-app@latest`
   - Use v14, to stay on track with the course 
 - Tailwind is tightly integrated with tailwindCSS 
-- 
 
 ## Frequent Next.js Updates + Documentation 
-- 
+- To update your project to the latest Next.js version, just run this command in your project folder: 
+  - `npm install next@latest react@latest react-dom@latest eslint-config-next@latest`
 
 ## Defining Routes and Pages 
-- 
+- Each page in Next.js is a React component that is exported from a page.js file 
+  - Convention is to just call this component `Page()`
+- You can now add custom labels in VSCode so we can easily see what file we're working in because they're all named page.js 
+  - Settings -> Custom Labels -> patterns -> Add item 
+    - `**/app/**/page.js` - `PAGE | ${dirname}` 
 
 ## Navigating Between Pages 
+- Using a <a> element creates a full page reload 
+  - We still want it to feel like a Single Page Application like we had before, this is where we use the <Link> Component
+- <Link> needs to be imported
+  - Behind the scenes it provides a few optimization techniques
+    - Will prefetch all the links 
+    - Each page is downloaded separately 
+    - Each page we visit will be cached right in the browser 
 
 ## Creating a Layout 
+- Each next.js app has to have a global layout 
+  - The layout wraps the entire application 
+  - Convention is to call it `RootLayout()`
+  - Needs to contain the <html> and <body> tag
+    - We don't include the head tag there is another way to deal with the head 
+- This is where we use the children prop to pass down the components we want to use 
+  - You can pass down a page or another layout 
+- We can export the page metadata from this layout 
+  - For example, the page's title 
+- Next.js is all about conventions 
+  - For example routes and variables you can export 
+- Layouts are Server Components - components that are rendered on the server 
+  - This is a completely new paradigm in React 
 
 ## What Are React Server Components? (RSC - Part 1)
+- Why React Server Components? 
+  - 100% Client-Side 
+    - Ui = f(state)
+    - We "hack" this by storing fetched data in state too 
+    - Interactive 
+    - Components 
+    - Requires lots of JS 
+    - Client-server data waterfalls 
+  - 100% server-side 
+    - UI = f(data)
+    - No Components 
+    - Easy and fastt to fetch all data 
+    - Close to the data source 
+    - Needs to ship 0kb of JS
+  - React Server Components 
+    - UI = f(data, state)
+    - Closer to what a real-wrold app is 
+  - What if we could tak the best of both worlds? 
+    - The answer is a completely new React paradigm: React Server Components (RSC) 
+- What are React Server Components? 
+  - React Server Components (RSC)
+    - A new full-stack architecture for React apps 
+    - Introduces the server as an integral part of React component tress: server components 
+    - We write frontend code next to backend code in a natural way that "feels" like regular React 
+    - RSC is NOT active by default in new React apps (e.g. Vite apps): it needs to be implemented by a framework like Next.js ("app router")
+    - Name of the new paradigm 
+  - Client Components 
+    - UI = f(state)
+    - "Regular" components 
+    - Created with the "use client" directive at the top of the module 
+  - Server Components 
+    - Name of the new Component type 
+    - UI = f(data)
+    - Component that are only rendered on the server 
+    - Don't make it into the bundle (0kb)
+    - We can build the back-end with React 
+    - Default in apps that use the RSC architecture (like Next.js)
+- An Example + The Server-Client Boundary 
+  - Server Component 
+  - App --> Sidebar - Header (Avatar - DarkMode "use client" (CC)) - Main (Table -> CabinRow (Menu "use client" (CC) --> Duplicate (CC) - Edit (CC) - Delete (CC)) -- SortBy "use client" (CC)) 
+    - CC = Client Component 
+  - Server-client Boundary - split point between server and client code 
+    - Client sub-tree. Child modules don't need to use "use client"
+- Server Components vs. Client Components 
+  - Client Components ("use client") - Server Components (default) 
+    - State/ hooks - Yes - No 
+    - Lifting state up - Yes - N.A.
+    - Props - Yes - Yes (Must be serializable when passed to client components. No functions or classes)
+    - Data fetching - Also possible, preferably with library - Preferred. Use async/await in component
+    - Can import - Only client components (can't go back in the client-server boundary) - Client and server components 
+      - Importing - the component module imports another module using the import syntax
+    - Can render - Client components and server components passed as props - Client and server components 
+      - Render - one component calls another one 
+    - When re-render? - On state change - On URL change (navigation)
+- A simple new mental model 
+  - "Traditional" React 
+    - Components -> View -> Interaction -- Update state --> Re-render Components -- Fetch data 
+  - React with RSC 
+    - The core remains the same 
+    - Server Components --> View -- Fetch data or can pass props to the client component 
+    - Client Components -> View -> Interaction -- Update state --> Re-render Components -- Update URL -- Re-render --> Server Component 
+- The Good and Bad of the RSC Architecture 
+  - The Good 
+    - We can compose entire full-stack apps with React Components alone (+ server actions)
+    - One single codebase for front and back-end 
+    - Server components have more direct and secure access to the data source (no API, no exposing API keys, etc.)
+    - Eliminate client-side waterfalls by fetching all the data needed for a page at once before sending it to the client (not each component)
+    - "Disappearing code": server components ship no JS, so they can import huge libraries "for free"
+  - The Bad 
+    - Makes React more complex 
+    - More things to learn and understand 
+    - Things like Context API don't work in server components 
+    - More decisions to make: "Should this be a client or a server component?", "Should I fetch this data on the server or the client?", etc. 
+    - Sometimes you still need to build an API (for example if you also have a mobile app)
+    - Can only be used within a framework 
 
 ## Fetching Data In a Page 
+- Each page is a server component
+- Logs from server components will log in the terminal, client components will still render in the browser console 
 
 ## Adding Interactivity With Client Components 
+- There is hydration here, but the user is able to see the most important content, but is not able to interact 
+- All components are rendered on the initial render, we will learn more about this later 
 
-## Displaying a Loading Indicator 
+## Displaying a Loading Indicator
+- We will build our loading indicator because it is a global loader so it will apply to any page in the application 
+- With the loading file we can display an instant loading space that displays while the route is fetching data 
+- loading.js - this activates streaming 
+  - Will be streamed from the server to the client automatically and not sent in one go 
+  - This uses renderToReadableStream() 
+  - This feature needs JS to work in the browser 
 
 ## How RSC Works Behind the Scenes (RSC - Part 2)
+- A Quick Review of Rendering In React 
+  - "Traditional" React 
+    - Components (A B C)
+    - --> Tree of component instances (Component tree) -- RENDER --> React element tree ("Virtual DOM") -- Commit to DOM --> DOM Elements (HTML)
+- How RSC Works Behind the Scenes 
+  - Server Component (SC) and Client Component (CC)
+  - Server
+    - Component Tree -- Render SC --> "Virtual DOM" of SC + Trees of CC (RSC Payload) -- Send to Client -->
+  - Client 
+    - Not server and client in the typical sense 
+    - --> Complete "Virtual DOM"
+  - Component tree (contains SC and CC Components) -- RENDER SC --> React Element (The code from the SC has disappeared)
+    - This is why we can't use hooks in server components because there is no way to send useState to the browser, there would be no way to keep track of state 
+  - Client Components 
+    - "Hole" where the CC will be rendered 
+      - Serialized props passed from SC to CC 
+      - URL to script with component code   
+        - Powered by the framework's bundler 
+  - "Virtual DOM" of SC + Trees of CC (RSC Payload) 
+  - See class lecture to see what this actual diagram looks like 
+  - Why RSC Payload? Why not renders SCs as HTML 
+    - Describes the UI as data, not as finished HTML 
+    - When a SC is re-rendered: React is able to merge ("reconcile") the current tree on the client with a new tree coming from the server 
+    - As a result, UI state can be preserved when a SC re-renders, instead of completely re-generating the page as HTML 
+- A Simplified Review 
+  - "Traditional" React
+    - Component Tree -- Render --> "Virtual DOM" -- Commit --> DOM Elements 
+  - React With RSC 
+    - Server - Component tree of SC and CC -- Render SC --> "Virtual DOM" of SC + Component trees of CC (RSC Payload - For Each CC in Tree) -- Send "RSC Payload" to client - Render CC --> Client - Complete "Virtual DOM" -- Commit --> DOM Elements 
+      - RSC Payload for Each CC in tree: 
+        - "Hole" where CC will render 
+        - Serialized props from SC 
+        - URL to script with code 
+    - Steps don't wait for one another. Completed render work is streamed to client 
+    - UI = f(data, state) -- is actually UI = f(data)(state)
 
 ## RSC vs SSR: How Are They Related? (RSC - Part 3)
+- Review: Server-Side Rendering (SSR) 
+  - We'll be talking about dynamic SSR (HTML generated at runtime)
+  - Server - (Component Tree -- Render --> HTML) -- JS --> Client - Hydrate --> Interactive React App
+  - SSR: "Just take this component tree, render it as HTML, and send that HTML to the browser" 
+  - "Also send the React code to make the HTML interactive" - Client step 
+- The Relationship Between RSC and SSR 
+  - RSC vs. SSR 
+    - RSC is NOT the same as SSR: they are seperate technologies
+    - RSC does NOT replace SSR 
+    - They usually work together: frameworks can combine them 
+    - Both client and server components are initially rendered on the server when SSR is used** (Most important thing to remember)
+    - In the RSC model, "server" just means "the developer's computer" 
+    - Result: RSC does NOT require running a web server! Components could run only once at build time (static site generation)
+  - Server - Doesn't need to be an actual web server. Simply "another computer" 
+  - Client - Doesn't need to be a browser 
+  - SSR: "Just take this component tree, render it as HTML, and send that HTML to the browser" -- Also works like this when coupled with RSC. All components are pre-rendered on the server 
+  - RSC Payload 
+    - Sent to the client along with component tree and HTML 
+    - So that React has the entire component tree on the client, not just HTML. Necessary to preserve UI state on future SC re-renders 
+  - Only client component get hydrated 
+  - SSR happens only on initial render. On re-renders, client components only render on the actual client 

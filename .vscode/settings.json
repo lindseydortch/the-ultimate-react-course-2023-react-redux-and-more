@@ -12,10 +12,9 @@
   },
   "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
   "[html]": {
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-  },
-  "prettier.configPath": "/usr/local/lib/node_modules/prettier"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
