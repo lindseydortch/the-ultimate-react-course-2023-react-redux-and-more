@@ -16,5 +16,8 @@
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  // "workbench.editor.customLabels.patterns": {
+  //   "**/notes.md": "NOTES | Section-${dirname}"
+  // }
 }

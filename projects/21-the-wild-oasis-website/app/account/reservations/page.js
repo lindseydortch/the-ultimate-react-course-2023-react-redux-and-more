@@ -1,4 +1,8 @@
-import ReservationCard from "./ReservationCard";
+import ReservationCard from "@/app/_components/ReservationCard";
+
+export const metadata = {
+  title: "Your Reservations"
+};
 
 export default function Page() {
   // CHANGE
@@ -19,7 +23,7 @@ export default function Page() {
         </p>
       ) : (
         <ul className="space-y-6">
-          {bookings.map((booking) => (
+          {bookings.map(booking => (
             <ReservationCard booking={booking} key={booking.id} />
           ))}
         </ul>
