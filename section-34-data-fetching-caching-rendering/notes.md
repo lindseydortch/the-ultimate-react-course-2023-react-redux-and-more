@@ -250,4 +250,4 @@
   - Experiment with this, so you can learn more about how this affects your application 
 
 ## CHALLENGE #1: Fetching the Number of Cabins 
-- 
+- Made number of cabins on about page dynamic 
