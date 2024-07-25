@@ -1,4 +1,5 @@
 import Header from "@/app/_components/Header";
+import { ReservationProvider } from "@/app/_components/ReservationContext";
 
 import "@/app/_styles/globals.css";
 
@@ -27,7 +28,9 @@ export default function RootLayout({ children }) {
           <Header />
         </header>
         <div className="flex-1 px-8 py-12 grid">
-          <main className="max-w-7xl mx-auto w-full">{children}</main>
+          <main className="max-w-7xl mx-auto w-full">
+            <ReservationProvider>{children}</ReservationProvider>
+          </main>
         </div>
       </body>
     </html>
